@@ -6,6 +6,15 @@
   "author": "Andy Hardy <aohardy@gmail.com>",
   "license": "MIT",
   "private": false,
+  "engines": {
+    "node": "14.21.3",
+    "yarn": "1.22.19"
+  },
+  "scripts": {
+    "build": "yarn --cwd client install && yarn --cwd client build",
+    "deploy": "cp -a client/build/. public/",
+    "heroku-postbuild": "yarn build && yarn deploy"
+  },
   "devDependencies": {
     "@prettier/plugin-ruby": "^3.2.2",
     "prettier": "^2.8.7"
